@@ -54,16 +54,15 @@ button {
     font-size: 16px;
 }
 
-.logout-link, #logout-button {
-    display: block;
-    margin-top: 20px;
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     background: none;
     border: none;
     color: #007bff;
     cursor: pointer;
     text-decoration: underline;
-    font-size: 14px;
-    padding: 0;
 }
 
 .result-container {
@@ -101,4 +100,30 @@ button {
 
 .suggestion-item strong {
     color: #007bff;
+}
+
+.history-container {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.history-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#history-list {
+    list-style-type: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
 }

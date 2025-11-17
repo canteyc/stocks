@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button id="logout-button" class="logout-button">Logout</button>
     <div class="container">
         <form id="search-form" class="form">
             <h1>Search</h1>
             <div class="form-control">
                 <label for="search-query">Search Query</label>
-                <input type="text" id="search-query" placeholder="Enter a stock symbol (e.g., AAPL)">
+                <input type="text" id="search-query" placeholder="Enter a stock symbol (e.g., AAPL)" autocomplete="off">
                 <div id="suggestions-container" class="suggestions-container"></div>
             </div>
             <button type="submit">Search</button>
@@ -20,7 +21,11 @@
         <div id="result-container" class="result-container">
             <!-- Search results will be displayed here -->
         </div>
-        <button id="logout-button" class="logout-link">Logout</button>
+        <div id="history-container" class="history-container">
+            <ul id="history-list">
+                <!-- History items will be added here -->
+            </ul>
+        </div>
     </div>
 
     <script src="search.js"></script>

@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultContainer = document.getElementById('result-container');
     const suggestionsContainer = document.getElementById('suggestions-container');
     const logoutButton = document.getElementById('logout-button');
+    const historyList = document.getElementById('history-list');
+
+    const addHistoryItem = (symbol, price) => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('history-item');
+        listItem.innerHTML = `<span>${symbol}</span> <span>$${price.toFixed(2)}</span>`;
+        // Add the new item to the top of the list
+        historyList.prepend(listItem);
+    };
 
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -29,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p><strong>${data.symbol}</strong></p>
                     <p>Opening Price: $${data.open_price.toFixed(2)}</p>
                 `;
+                addHistoryItem(data.symbol, data.open_price);
             } else {
                 if (response.status === 401) { // Unauthorized
                     alert('Your session has expired. Please log in again.');
