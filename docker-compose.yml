@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: stocks_backend
+    command: >
+      sh -c "python manage.py migrate &&
+             gunicorn auth_project.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+
+  backend-test:
+    build: ./backend
+    container_name: stocks_backend_test
+    command: python manage.py test
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+
+  frontend:
+    build: ./frontend
+    container_name: stocks_frontend
+    ports:
+      - "8080:80"
+    volumes:
+      # This custom nginx config will proxy API requests to the backend
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - backend

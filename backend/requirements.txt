@@ -1,0 +1,5 @@
+django
+requests
+python-dotenv
+django-cors-headers
+gunicorn
