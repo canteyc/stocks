@@ -33,7 +33,7 @@ Follow these instructions to get the application running on your local machine.
 
 1.  **Clone the repository (if you haven't already):**
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/canteyc/stocks.git
     cd stocks
     ```
 
