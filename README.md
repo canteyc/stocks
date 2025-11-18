@@ -48,7 +48,7 @@ Follow these instructions to get the application running on your local machine.
 
 1.  From the root directory of the project (`stocks/`), run the following command:
     ```bash
-    docker-compose up --build
+    docker compose up --build
     ```
     This command will build the Docker images for the frontend and backend services and start the containers.
 
@@ -60,7 +60,7 @@ Follow these instructions to get the application running on your local machine.
 The project includes a suite of backend tests. To run the tests, use the following Docker Compose command from the root directory:
 
 ```bash
-docker-compose run --rm backend-test
+docker compose run --rm backend-test
 ```
 
 This will start a temporary container, run the Django test suite, and then remove the container upon completion.
